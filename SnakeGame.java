@@ -8,12 +8,12 @@ public class SnakeGame extends JFrame {
 
     private static final int WIDTH = 800;
     private static final int HEIGHT = 600;
-    private static final int SNAKE_SIZE = 10;
+    private static final int SNAKE_SIZE = 20;
     private static final int INFO_WIDTH = WIDTH / 4;
     private static final int GAME_WIDTH = WIDTH - INFO_WIDTH;
     private static final int BORDER_THICKNESS = 5;
 
-    private GamePanel gamePanel;
+    private final GamePanel gamePanel;
 
     public SnakeGame() {
         setTitle("Snake Game");
@@ -59,10 +59,10 @@ public class SnakeGame extends JFrame {
         gamePanel.startGame();
     }
 
-    private class GamePanel extends JPanel implements ActionListener, KeyListener {
+    private static class GamePanel extends JPanel implements ActionListener, KeyListener {
         private LinkedList<Point> snake;
         private int direction = KeyEvent.VK_RIGHT;
-        private Timer timer;
+        private final Timer timer;
         private boolean running = false;
         private Point food;
         private int score = 0;
